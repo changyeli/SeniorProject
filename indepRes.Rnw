@@ -1,0 +1,444 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fullpage} % changes the margin
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{indentfirst}
+\usepackage[fleqn]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{apacite}
+\usepackage{setspace}
+\doublespacing
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+    Football (soccer) is one of the most popular and valued sport in the world. In order to win more titles, football clubs do not only seek for high level players but also experienced managers. To improve the performances, clubs are increasingly looking for technical and scientific methods to evaluate players and managers' performances. On the website \emph{WhoScored}, players are rated objectively and effectively based on their performances. The higher ratings the players get, the more valued the players are and higher level the players are at. Unfortunately, there are no such ratings for managers. Therefore, building up an objective and effective system to evaluate the performances of managers is highly demanded. 
+    
+    In this paper, I will use mathematical methods to evaluate managers' performances by calculating fuzzy preference relation matrix and fuzzy consistent matrix. Unlike other studies that are based on human judgment, fuzzy set theory will provide an objective and effective method to rank managers' performances.
+    
+    
+    
+    
+\subsection{Background}
+
+    Premier League is not only one of the most famous and popular professional football league all over the world, but also stands for the top of English football league system. In Premier League, 20 teams will play 38 matches each and the team who has the highest scores will win the league. The levels of managers are becoming critical to raise probability of winning championships. Premier League clubs are looking forward to hiring high quality manager in order to win more titles in the league. For example, after they sacked Brendan Rodgers, Liverpool hired Jürgen Klopp, who is a former winner of the Bundesliga title. Also, in next season (2016-2017), Manchester City will hire Pep Guardiola, the manager who is considered as the best all over the world, in order to win more titles.
+	
+\subsection{Methods}
+
+    General speaking, there are three methods to evaluate managers' performances. Two of them are subjective and another one is objective. Some previous studies focused on subjective results, such as questionnaires for athletes to judge coaches \cite{rushall1985athletes} and interviewing with coaches \cite{cassidy2006evaluating}. Moreover, some clubs' executive boards focus more on rebuilding up a team, such as working with youngsters, judging player potential and ability, and team management. Therefore, managers who are more likely to be a ``Tinker'' are hired to take over or rebuild a team, thus Louis Van Gaal, Claudio Ranieri and Carlo Ancelotti are hired by different clubs. Both of these methods focus on human judgement and they are subjective. Thus the third method will use traditional evaluation factors, such as Winning Percentage, Title Won, Manager of Year and Manager of Month, to evaluate managers' performances. 
+	
+	
+	Although the statistics is listed, unlike football players, managers don't have any ``score'' or ratings like those on \emph{WhoScored} or an evaluation system to build up a ``score'', so a quantitative score is highly needed in order to rank managers' performances. However, factors that count for rebuilding up a team are hard to be quantitative, so in this paper I will choose traditional factors, namely Winning Percentage, Title Won, Manager of Year and Manager of Month, to evaluate Premier League managers' performances. Also, a fuzzy consistent matrix will be applied to determine the weight of factors and evaluate and rank the performance of Premier League managers. The product of calculated weight and selected factors will be the final score to rank managers' performances.
+	
+	In other words, in this paper I will use mathematical methods to evaluate managers' performances by calculated score rather than complete human judgment. 
+	
+\section{Data Collection}
+
+    All data is collected from the official Premier League website and relevant Wikipedia pages. All relevant Wikipedia pages refer to related the manager profile page on the official Premier League website.
+    
+    Also, the performances of Premier League managers are decided by league performances only. In other words, team performances in UEFA Europa League, UEFA Champions League, Community Shield, FA Cup and League Cup are not included.
+    
+    The performances of the managers are evaluated by several factors: the winning percentage, the number of Manager of Year, Manager of Month and league title that the managers had won. The data that collected from the official website also includes the matches that the managers had coached, however, a good manager will stay longer in the club, which means the matches that the managers had coached is not appropriate to evaluate the managers' performances, because there is a potential collinearity between the matches and the score that we estimate.
+    
+    In other words, the evaluation factors are Winning Percentage, Title Won, Manager of Year and Manager of Month.
+    
+\section{Model Description}
+
+	
+\subsection{Definitions}
+
+	According to Barzilai \citeyear{barzilai1998consistency}, Kandasamy, Smarandache and Ilanthenral,\citeyear{kandasamy2007elementary},  Ismail and Mors \citeyear{ismail1991fuzzy}, Wang and Chen \citeyear{wang2005new}, the definitions of fuzzy set theory are defined as follows:
+
+	\begin{enumerate}
+		\item Fuzzy matrix $F=(f_{ij})_{m\times m}$ is a rectangular array of fuzzy numbers, where fuzzy number can be defined by the proper linguistic scale (For example, high, medium and low) and fall between $[0,1]$.
+		\item $F=(f_{ij})_{m\times m}$ denotes the matrix that has $m$ categories, and each $i$ and $j$ represent a different category in the matrix.
+		\item For fuzzy matrix $F$, if $f_{ij}+f_{ji}=1$, then this matrix is defined as a fuzzy reciprocal matrix. If $f_{ij}=f_{ik}-f_{jk}+0.5$ for any $k\in [1,2,...,m]$, then the matrix is a fuzzy consistent matrix.
+		\item If $f_{ij}=0.5$, then element $i$ and $j$ are equally important. If $0\le f_{ij}\le 0.5$, then element $j$ is more important that $i$. If $0.5\le f_{ij}\le 1$, then element $i$ is more important than $j$.
+		\item The smaller $f_{ij}$ is, the more important element $j$ is than $i$.
+		\item The larger $f_{ij}$ is, the more important element $i$ is than $j$.
+		\item Fuzzy preference relation matrix is the matrix that shows the preference among factors based on the previous three rules.
+	\end{enumerate}
+	
+\subsection{Notations}
+
+    \begin{enumerate}
+        \item In a fuzzy preference relation matrix, $j$ refers to the indexes of row elements, and $i$ refers to the indexes of column elements.
+        \item The sum of each row in fuzzy preference is defined as $c = \sum_{k=1}^{m}f_{ik}$ where $i\in [1, 2, ..., m]$, and $c$ is row vector.
+        \item There are $m$ factors in total. In this paper, $m=4$.
+        \item \texttt{No.Manager of Month} is notated as \texttt{NoMM}.
+        \item \texttt{Win Percentage} is notated as \texttt{WP}.
+        \item \texttt{Title Won} is notated as \texttt{TW}.
+        \item \texttt{No.Manager of Year} is notated as \texttt{NoMY}.
+    \end{enumerate}
+    
+\subsection{Algorithms}
+
+    Based on the literature mentioned earlier, a fuzzy preference relation matrix and a fuzzy consistent matrix should be calculated in order to find the weight matrix of factors. Lucheng, Xin and Wenguang \citeyear{lucheng2010research}, Chan, Chan and Tang, \citeyear{chan2000evaluation} developed algorithms to calculate these matrices. They pointed out that fuzzy consistent matrix and fuzzy set theory are introduced to deal with the vagueness of human thought.
+
+    \begin{enumerate}
+        \item Each entity of fuzzy consistent matrix is defined as $r_{i, j} = \frac{c_{i}-c_{j}}{2m}+0.5$, where $r$ is a $m\times m$ square matrix.
+        \item Each entity of fuzzy consistent matrix should be normalized as $s_{i,j} = \frac{r_{i,j}}{d_{j}}$, where $d$ is the sum of each row of $r$. At this stage, $d$ is a row vector and $s$ is a $m\times m$ matrix.
+        \item The weight of factors is defined as $w = \frac{k_{i}}{\sum_{i=1}^{m} k}$, where $k$ is the product of each element in each row of $s$. At this stage, $k$ is a row vector and $w$ is a $m\times m$ matrix.
+        \item $weight$ is a row vector that contains the diagonal elements of $w$. Each element of $weight$ is the weight of the corresponding factor.
+    \end{enumerate}
+	
+\section{Algorithms Implementations}
+
+\subsection{Fuzzy Preference Relation Matrix}
+
+	In order to transform vague human though into relative precise estimators, Chan recommended converting these linguistic terms to fuzzy numbers. Therefore, a fuzzy multi-criteria decision-making is considered the best solution to convert human thought into estimators and related weights in the evaluating model.
+	
+	Chan also points out several steps to build up a fuzzy preference relation matrix, which is a matrix that consists of preferences of each factor. Factors that are selected in the previous section should be rated respectively by a set of linguistic scales. By looking at official Premier League data, only 4 managers won the Manager of Year without winning a title of that season, which means \texttt{Title Won} is not highly related to Manager of Year, so I set \texttt{No.Manager of Year} to low. Moreover, the higher win percentage will lead to more points, therefore there would be a higher possibility to win the title. Thus I set \texttt{Win Percentage} as high. \texttt{No.Manager of Month} is another important factor to evaluate managers' performance. The better managers will win more Manager of Month, so I set it to medium. The most important factor is \texttt{No.Title Won} since the better manager will win more titles in his career. In this case, each factor has its own scale as shown in Table 1:
+	
+	\begin{table}[h]
+		\centering
+		\caption{Scale Selection}
+		\begin{tabular}{ll}
+			\textbf{Variable Name} & \textbf{Linguistic Scale}\\
+			\hline\hline
+			No. Title Won & Very Important \\
+			Win Percentage & High \\
+			No. Manager of Month & Medium \\
+			No. Manager of Year & low\\
+			\hline\hline
+		\end{tabular}
+	\end{table}
+	
+	Therefore, we can get fuzzy preference relation matrix as shown in Table 2:
+	
+    \begin{table}[h]
+        \centering
+        \caption{Fuzzy Preference Relation Matrix}
+        \begin{tabular}{lllll}
+            & NoMM & WP & TW & NoMY \\
+         \hline\hline
+        NoMM & 0.5 & 0 & 0 & 1 \\
+        WP & 1 & 0.5 & 0 & 1 \\
+        TW & 1 & 1 & 0.5 & 1 \\
+        NoMY & 0 & 0 & 0 & 0.5\\
+        \hline\hline
+        \end{tabular}
+    \end{table}
+    
+    According to the literature mentioned earlier, the fuzzy preference relation matrix, only 0, 0.5 and 1 are used to represent the relation among factors. Moreover, it provides a easier and simpler way to perform matrix manipulation in the following process.
+    
+\subsection{Fuzzy Consistent Matrix}
+	
+    Based on the calculation above, the fuzzy consistent matrix can be defined in Table 3:
+    
+<<foo1,echo=FALSE>>=
+fr = matrix(c(0.5, 0, 0, 1, 1, 0.5, 0, 1, 1, 1, 0.5, 1, 0, 0, 0, 0.5), 
+            nrow = 4, ncol = 4, byrow  = TRUE)
+rownames(fr) = c('NoMM', 'WP', 'TW', 'NoMY')
+colnames(fr) = c('NoMM', 'WP', 'TW', 'NoMY')
+c = rowSums(fr)
+r = matrix(0, 4, 4)
+m = 4 
+for (i in 1:4) {
+    for (j in 1:4) {
+        r[i, j] = (c[i] - c[j])/ (2 * m) + 0.5
+    }
+}
+rownames(r) = c('NoMM', 'WP', 'TW', 'NoMY')
+colnames(r) = c('NoMM', 'WP', 'TW', 'NoMY')
+@
+
+\begin{table}[h]
+    \centering
+    \caption{Fuzzy Consistent Matrix}
+    \label{my-label}
+    \begin{tabular}{lllll}
+    \hline
+     & \texttt{NoMM} & \texttt{WP} & \texttt{TW} & \texttt{NoMY} \\
+     \hline\hline
+    \texttt{NoMM} & 0.500 & 0.375 & 0.250 & 0.625 \\
+    \texttt{WP} & 0.625 & 0.500 & 0.375 & 0.750 \\
+    \texttt{TW} & 0.750 & 0.625 & 0.500 & 0.875 \\
+    \texttt{NoMY} & 0.375 & 0.250 & 0.125 & 0.500 \\
+    \hline\hline
+    \end{tabular}
+\end{table}
+
+
+\subsection{Weight Matrix and Assiociated Vector}
+    Chan also points out that a normalization for fuzzy consistent matrix is needed in order to determine the weight. A weight matrix of each factor is defined in Table 4:
+    
+<<foo2,echo=FALSE>>=
+d = rowSums(r)
+s = matrix(0, 4, 4)
+for (i in 1:4) {
+    for (j in 1:4) {
+        s[i ,j] = r[i ,j]/(d[j])
+    }
+}
+colnames(s) = c('NoMM', 'WP', 'TW', 'NoMY')
+rownames(s) = c('NoMM', 'WP', 'TW', 'NoMY')
+k = apply(s, 1, prod) ** (1/4)
+w = matrix(0, 4, 4)
+for (i in 1:4) {
+    w[i, ] = k[i]/sum(k)
+}
+colnames(w) = c('NoMM', 'WP', 'TW', 'NoMY')
+rownames(w) = c('NoMM', 'WP', 'TW', 'NoMY')
+weight = c(0, 0, 0, 0)
+for (i in 1:4) {
+    weight[i] = w[i, i]
+}
+@
+
+\begin{table}[h]
+    \centering
+    \caption{Weight Vector}
+    \label{my-label}
+    \begin{tabular}{llll}
+    0.2168543 & 0.2853963 & 0.3527301 & 0.1450192
+    \end{tabular}
+\end{table}
+
+    So after calculation, the weight of \texttt{No.Manager of Month}, \texttt{Win Percentage}, \texttt{Title Won} and \texttt{No.Manager of Year} is 0.2168543, 0.2853963, 0.3527301 and 0.1450192 respectively.
+	
+\section{Data Analysis}
+
+    In this section, the factor weight, which is calculated in the previous section, will be applied to official Premier League data in order to determine who is the best manager.
+
+
+\subsection{Pilot Analysis}
+    
+<<foo3,echo=false, results=hide>>=
+
+## win percentage
+url = "~/Google Drive/4893/independent research/data/manager.txt"
+manager <- read.csv(url)
+manager['ID'] = seq.int(from = 1, to = 179, by = 1)
+manager[is.na(manager)] = 0
+manager = as.data.frame(manager)
+
+## manager of month
+url = "~/Google Drive/4893/independent research/data/manager_mon.txt"
+manager_mon = read.csv(url, 
+                       header = FALSE, 
+                       dec = ",")
+colnames(manager_mon) = c('MANAGER', 'NoMM','ID')
+manager_mon = as.data.frame(manager_mon)
+
+## title won
+url = "~/Google Drive/4893/independent research/data/manager_winner.txt"
+manager_winner <- read.csv(url, 
+                           header = FALSE, 
+                           dec = ",")
+colnames(manager_winner) = c('Manager', 'TW', 'ID')
+manager_winner = as.data.frame(manager_winner)
+
+## manager of year
+url = "~/Google Drive/4893/independent research/data/manager_year.txt"
+manager_year <- read.csv(url)
+manager_year = as.data.frame(manager_year)
+
+## data merge
+
+
+df1 = merge(manager, manager_mon, by = 'ID', all.x = TRUE)
+df1 = df1[,-6]
+df2 = merge(df1, manager_year, by = 'ID', all.x = TRUE)
+df2 = df2[,-7]
+df3 = merge(df2, manager_winner, by = 'ID', all.x = TRUE)
+df3 = df3[, -8]
+df3[is.na(df3)] = 0
+@
+
+    
+    At the very beginning of data analysis, I decided to analyze all data in order to find some improvements.
+
+<<foo4,echo=FALSE>>=
+score = rep(0, nrow(df3))
+score = as.vector(score)
+for (i in 1:179) {
+    score[i] = df3[i, 6] * weight[1] + df3[i, 4] * weight[2]
+    + df3[i ,8] * weight[3] + df3[i, 7] * weight[4]
+}
+df3['SCORE'] = score * 100 ## make it easier to compare.
+result = df3[with(df3, order(-SCORE)),]
+@
+
+
+\begin{table}[h]
+    \centering
+    \caption{Pilot Analysis}
+    \begin{tabular}{lllllllll}
+    \hline
+    ID & Manager & Matches & WP & Present & NoMM & NoMY & TW & Score  \\
+    \hline\hline
+    1 & Pat Rice & 3 & 100  & 0 & 0 & 0 & 0 & 2853.963 \\
+    2 & Jim Barron & 1 & 100 & 0 & 0 & 0 & 0 & 2853.963  \\
+    3 & Eddie Newton & 1 & 100 & 0 & 0 & 0 & 0 & 2853.963  \\
+    6 & Alex Ferguson & 810 & 65 & 0 & 27 & 11 & 13 & 2440.583  \\
+    11 & Arsène Wenger & 743 & 58 & 1 & 15 & 3 & 3 & 1980.580  \\
+    5 & José Mourinho & 212 & 66 & 0 & 3 & 3 & 3 & 1948.672  \\
+     \hline\hline
+    \end{tabular}
+\end{table}
+
+   The result in table 5 shows that Pat Rice is the best Premier League Manager of all time. However, the first three managers only coached for a very short time, which means there should be an improvement of data selection, thus the restrictions of candidates should be applied. In this case, the matches that candidates coached should be at least one season, that is, matches should be greater or equal to 38.
+   
+\subsection{The Best Manager Who Coached At Least One Season in All Time}
+
+    This time, applicable candidates should manage the team at least one season. In other words, the matches that the manager coaches are greater or equal to 38.
+   
+<<foo5,echo=FALSE>>=
+df4 = subset(df3, MATCHES >= 38)
+score1 = rep(0, nrow(df3))
+score1 = as.vector(score)
+for (i in 1:114) {
+    score1[i] = df4[i, 6] * weight[1] + df4[i, 4] * weight[2]
+    + df4[i ,8] * weight[3] + df4[i, 7] * weight[4]
+}
+df3['SCORE'] = score1 * 100
+result1 = df4[with(df4, order(-SCORE)),]
+@
+
+\begin{table}[h]
+    \centering
+    \caption{The Best Manager Who Coached At Least One Season in All Time}
+    \begin{tabular}{lllllllll}
+    \hline
+    ID & Manager & Matches & WP & Present & NoMM & NoMY & TW & Score  \\
+    \hline\hline
+    6 & Alex Ferguson & 810 & 65  & 0 & 27 & 11 & 13 & 2440.583 \\
+    11 & Arsène Wenger & 743 & 58 & 1 & 15 & 3 & 3 & 1980.580  \\
+    5 & José Mourinho & 212 & 66 & 0 & 3 & 3 & 3 & 1948.672  \\
+    8 & Manuel Pellegrini & 105 & 63 & 1 & 4 & 0 & 1 & 1884.739  \\
+    9 & Carlo Ancelotti & 76 & 63 &  0 & 4 & 0 & 1 & 1884.739  \\
+    10 & Roberto Mancini & 133 & 62 & 0 & 2 & 0 & 1 & 1812.828  \\
+     \hline\hline
+    \end{tabular}
+\end{table}
+
+
+    In this refined result (Table 6), Sir. Alex Ferguson is the best Premier League manager of all time. However, in this result, only Arsène Wenger and Manuel Pellegrini are still the managers of Premier League teams. 
+    
+    
+\subsection{The Best Current Premier League Manager}
+ 
+<<foo6,echo=FALSE>>=
+df5 = subset(df3, PRESENT == 1)
+score2 = rep(0, nrow(df5))
+score2 = as.vector(score2)
+for (i in 1:20) {
+    score2[i] = df5[i, 6] * weight[1] + df5[i, 4] * weight[2]
+    + df5[i ,8] * weight[3] + df5[i, 7] * weight[4]
+}
+df5['SCORE'] = score2 * 100
+result2 = df5[with(df5, order(-SCORE)),]
+@
+
+\begin{table}[h]
+    \centering
+    \caption{The Best Current Premier League Manager}
+    \begin{tabular}{lllllllll}
+    \hline
+    ID & Manager & Matches & WP & Present & NoMM & NoMY & TW & Score  \\
+    \hline\hline
+    11 & Arsène Wenger &  743 & 58 & 1 & 15 & 3 & 3 & 1980.58 \\
+    8 & Manuel Pellegrini &  105 & 63 & 1 & 4 & 0 & 1 & 1884.739  \\
+    7 & Guus Hiddink & 25 & 64 & 1 & 0 & 0 & 0 & 1826.536  \\
+    13 & Rafael Benitez &  255 & 55 & 1 & 6 & 0 & 0 & 1699.792  \\
+    14 & Claudio Ranieri & 176 & 53 & 1 & 3 & 0 & 0 & 1577.657 \\
+    18 & Louis Van Gaal & 67 & 49 & 1 & 0 & 0 & 0 & 1398.442  \\
+     \hline\hline
+    \end{tabular}
+\end{table}
+
+    The result in Table 7 shows the rank of current Premier League managers. As the manager who lead Arsenal for 20 years, There is no doubt the best current manager in the Premier League is Arsène Wenger. Moreover, in this result, most of the managers managed the team more than three seasons.
+    
+\subsection{The Best Premier League Manager Who Managed At Most Three Seasons}
+
+    This time, applicable candidates should have managed at least a half season and at most three seasons, which means, matches should be greater or equal to 19, and less than or equal to 114.
+    
+<<foo7,echo=FALSE>>=
+df6 = subset(df3, MATCHES >= 19 & MATCHES <= 114)
+score3 = rep(0, nrow(df6))
+score3 = as.vector(score3)
+for (i in 1:89) {
+    score3[i] = df6[i, 6] * weight[1] + df6[i, 4] * weight[2]
+    + df6[i ,8] * weight[3] + df6[i, 7] * weight[4]
+}
+df6['SCORE'] = score3 * 100
+result3 = df6[with(df6, order(-SCORE)),]
+@
+
+\begin{table}[h]
+    \centering
+    \caption{The Best Premier League Manager Who Managed At Most Three Seasons}
+    \begin{tabular}{lllllllll}
+    \hline
+    ID & Manager & Matches & WP & Present & NoMM & NoMY & TW & Score  \\
+    \hline\hline
+    8 & Manuel Pellegrini & 105 & 63 & 1 & 4 & 0 & 1 & 1884.739 \\
+    9 & Carlo Ancelotti &  76 & 63 & 0 & 4 & 0 & 1 & 1884.739\\
+    7 & Guus Hiddink & 25 & 64 & 1 & 0 & 0 & 0 & 1826.536  \\
+    12 & Felipe Scolari & 25 & 56 & 0 & 0 & 0 & 0 & 1598.219  \\
+    15 & Andre Villas-Boas & 81 & 52 & 0 & 2 & 0 & 0 & 1527.432\\
+    18 & Louis Van Gaal & 67 & 49 & 1 & 0 & 0 & 0 & 1398.442  \\
+     \hline\hline
+    \end{tabular}
+\end{table}
+
+    In Table 8, both Manuel Pellegrini and Carlo Ancelotti rank first. Both of them share the same winning percentage. Moreover, Manuel Pellegrini is the best manager who managed at most three seasons.
+
+
+\section{Summary}
+
+    Based on the results in previous sections, statistics and score show that Sir. Alex Ferguson is the best manager of the Premier League for all time. Arsène Wenger is the best current manager of the Premier League. Moreover, for the managers who managed less than three seasons, both Manuel Pellegrini and Carlo Ancelotti rank first. In addition, Manuel Pellegrini is the best current Premier League manager who managed less than three seasons.
+    
+    However, due to the high uncertainty and high insecurity of the Premier League's manager, a lot of talented and well-qualified managers are not included in the lists mentioned above. On the other hand, some of the managers who never coached in England are also not on the list. In other words, this paper does not contain all possible combinations of analysis due to data limitations.
+    
+    For the further study, more factors can be added into the evaluation system, such as team performances in UEFA Europa League, UEFA Champions League, Community Shield, FA Cup and League Cup. However, there are a lot of factors that cannot be transform into a relative precise estimators. As the manager of the Premier League, coach should take care of every side of club sports management. Moreover, most parts of club sports management performances, such as building up youth team, training levels, are hard to find valid data and evaluate by the people who are not in the industry, because lots of data like these are not open to the public.
+    
+    Nevertheless, given the data that can be accessed from the Internet, this paper provides an objective and e ective method to evaluate managers' performances.
+    
+    
+\newpage
+\section{Appendix}
+
+<<appendix-foo, eval=FALSE>>=
+<<foo1>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo2>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo3>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo4>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo5>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo6>>
+@
+
+<<appendix-foo, eval=FALSE>>=
+<<foo7>>
+@
+    
+\newpage
+\bibliographystyle{apacite}
+\bibliography{citation1.bib}
+\end{document}
+
