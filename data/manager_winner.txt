@@ -1,0 +1,7 @@
+Alex Ferguson,13,6	 
+Kenny Dalglish,1,19	 
+Arsène Wenger,3,11	 
+José Mourinho,3,5 	 
+Carlo Ancelotti,1,9	 
+Roberto Mancini,1,10 
+Manuel Pellegrini,1,8 

@@ -1,0 +1,8 @@
+MANAGER,    NoMY,ID
+Alex Ferguson,       11,6
+Arsène Wenger,       3,11
+José Mourinho,       3,5
+George Burley,       1,62
+Alan Pardew,     1,45
+Harry Redknapp,      1,44
+Tony Pulis,      1,78
